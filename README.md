@@ -114,12 +114,13 @@ breaks our ability to just 'load' or 'include' or 'require' the code.
 
 Kramdown does fenced code blocks like this:
 
-```md
+```markdown
 ~~~ css
 .my-example {
   color: red;
 }
 ~~~
+
 ```
 
 ## CSS
