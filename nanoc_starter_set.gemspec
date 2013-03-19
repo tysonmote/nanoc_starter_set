@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["tyson@tysontate.com"]
   spec.description   = %q{Sensible defaults for a Nanoc site.}
   spec.summary       = %q{NanocStarterSet includes all the batteries you need to a sensible Markdown / SCSS based site with nice typography and compressed CSS / JS.}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/tysontate/nanoc_starter_set"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
