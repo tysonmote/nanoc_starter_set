@@ -1,5 +1,7 @@
 # NanocStarterSet
 
+(In development. Pull requests welcome!)
+
 NanocStarterSet is a gem that makes it easy to start a Nanoc site with sensible
 defaults and some handy batteries included. It uses:
 
@@ -22,6 +24,17 @@ The included helpers and nanoc rules give you things like:
 * A `/js/all.js` file that contains a joined and compressed copy of all your
   JavaScript files.
 * ERB processing of your source files, if you suffix it with ".erb" 
+
+## TODO
+
+* Include a sensible default layout, and:
+  * Include all.js and all.css
+  * Include prettify
+* Remove the all.js / all.css hackery
+* Add more sensible defaults around blogs / pages
+* Add CoffeeScript support
+* Create a one-command site creator
+* Support backtick fenced code blocks
 
 ## Installation
 
@@ -97,7 +110,7 @@ breaks our ability to just 'load' or 'include' or 'require' the code.
 </html>
 ```
 
-## Markdown
+## Markdown notes
 
 Kramdown does fenced code blocks like this:
 
@@ -155,7 +168,9 @@ all: true
 ```
 
 You can change the order of files by prefixing a number to their name:
-"01_jquery.js", etc.
+"01_jquery.js", etc. Otherwise, it's they're included in alphabetical order.
+
+## Misc.
 
 Read the source of the gem to see what other functions it gives you.
 Setup and integration and documentation could be much easier, of course.
