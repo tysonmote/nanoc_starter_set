@@ -1,44 +1,18 @@
-# Setup compass
-
-require 'compass'
-Compass.add_project_configuration File.expand_path(File.join(__FILE__, "..", "compass_config.rb"))
-
-# Setup nanoc
-
-include Nanoc3::Helpers::Rendering
+# Base helpers
 include Nanoc3::Helpers::Blogging
-include Nanoc3::Helpers::Tagging
-include Nanoc3::Helpers::Rendering
+include Nanoc3::Helpers::Capturing
+include Nanoc3::Helpers::HTMLEscape
 include Nanoc3::Helpers::LinkTo
+include Nanoc3::Helpers::Rendering
+include Nanoc3::Helpers::Tagging
+include Nanoc3::Helpers::Text
+include Nanoc3::Helpers::XMLSitemap
 
-# Asset Helpers
+# Starter Set helpers
+require 'nanoc_starter_set/helpers/assets'
+require 'nanoc_starter_set/helpers/partials'
 
-# Process an asset file, sprockets-style
-def run_filters( item )
-  item[:filename].scan( /\.\w+/ ).reverse.each do |suffix|
-    case suffix
-      when ".erb"  ; filter :erb
-      when ".scss" ; filter :sass, Compass.sass_engine_options
-      when ".md"   ; filter :kramdown, {
-        enable_coderay: false,
-        remove_block_html_tags: false,
-      }
-      when ".html" ; filter :typogruby
-    end
-  end
-end
-
-def asset_items( folder )
-  items.select do |item|
-    item.identifier =~ %r{^/#{folder}/}
-  end.reject do |item|
-    item.attributes[:all]
-  end.map do |item|
-    item
-  end.sort_by( &:identifier )
-end
-
-# Other helpers
+# Misc. helpers
 
 def body_class
   @item[:layout] || @item[:kind]
@@ -46,9 +20,5 @@ end
 
 def pretty_date( date )
   attribute_to_time( date ).strftime( "%b %-d, %Y" )
-end
-
-def partial( name, vars = {} )
-  render "partials/#{name}", vars
 end
 

@@ -1,7 +1,3 @@
-#
-# CSS
-#
-
 compile '/css/*/' do
   run_filters item
   filter :rainpress if item[:all]
@@ -15,10 +11,6 @@ route '/css/*/' do
     nil
   end
 end
-
-#
-# JS
-#
 
 compile '/js/*/' do
   run_filters item

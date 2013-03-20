@@ -1,14 +1,14 @@
 require "nanoc_starter_set/version"
 
+NANOC_STARTER_SET_ROOT = File.join( File.dirname( __FILE__ ), "nanoc_starter_set" )
+
 module NanocStarterSet
   # In your Rules file:
   #
-  #     eval NanocStarterSet.asset_rules
+  #   include_rules NanocStarterSet.asset_rules
   #
-  # I know, amazing, right?
   def self.asset_rules
-    path = File.expand_path(File.join(__FILE__, "..", "nanoc_starter_set", "rules.rb" ) )
-    File.read path
+    File.expand_path( File.join( NANOC_STARTER_SET_ROOT, "rules", "assets.rb" ) )
   end
 end
 
