@@ -61,17 +61,14 @@ $ bundle install
 Add the following to lib/default.rb:
 
 ```ruby
-require 'nanoc_starter_set/setup'
+require 'nanoc_starter_set'
 ```
 
 And in your Rules file, at the top:
 
 ```ruby
-eval NanocStarterSet.asset_rules
+extend NanocStarterSet::Rules
 ```
-
-Eval is necessary here because nanoc does some instance_eval hackery here that
-breaks our ability to just 'load' or 'include' or 'require' the code.
 
 ## Recommended layout
 
